@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Add Book and Review</title>
+	</head>
+	<body>
+		<p><a href="/books">Home</a> <a href="/logout">Logout</a></p>
+		<h2>Add a New Book Title and Review:</h2>
+		<form action="/add_book_review" method="post">
+			Book Title: <input type="text" name="title"><br>
+			Author: <br>
+			Choose from the list: 
+			<select name="author">
+				<option value="0"></option>
+				{% for author in authors %}
+					<option value="{{ author['id'] }}">{{ author["name"] }}</option>
+				{% endfor %}
+			</select><br>
+			Or add a new author: <input type="text" name="author_new"><br>
+			Review: <textarea name="review"></textarea><br>
+			Rating: <input type="number" name="rating" min="1" max="5" value="3"> stars<br>
+			<input type="submit" name="submit" value="Add Book and Review">
+		</form>
+	</body>
+</html>
